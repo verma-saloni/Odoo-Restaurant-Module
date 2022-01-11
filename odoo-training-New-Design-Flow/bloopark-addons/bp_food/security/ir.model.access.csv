@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_food_employeestype,access.food.employeestype.manager,model_food_employeestype,base.group_user,1,1,1,1
+access_food_dishtype,access.food.dishtype.manager,model_food_dishtype,base.group_user,1,1,1,1
+access_food_table,access.food.table,model_food_table,base.group_user,1,1,1,1
+access_food_order,access.food.order,model_food_order,base.group_user,1,1,1,1
+access_food_menu,access.food.menu,model_food_menu,base.group_user,1,1,1,1
+access_hr_employee,access.hr.employee.manager,model_hr_employee,base.group_user,1,1,1,1
+access_suggestion_wizard,access.suggestion.wizard.manager,model_check_booking_table,base.group_user,1,1,1,1

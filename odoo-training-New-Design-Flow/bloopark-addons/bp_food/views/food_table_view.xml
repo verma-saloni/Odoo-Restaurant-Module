@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- tables Data Master -->
+        <!-- Form view of new customer data -->
+        <record id="view_food_table_form" model="ir.ui.view">
+            <field name="name">food_table.form</field>
+            <field name="model">food.table</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <form string="Table Details">
+                   <header>
+                       <button string="Table Suggestion" name="%(check_booking_table)d"
+                               type="action" class="oe_stat_button"/>
+                   </header>
+                    <sheet>
+                        <group>
+                            <field name="name" colspan="1"/>
+                            <newline/>
+                            <field name="capacity"/>
+                            <newline/>
+                            <field name="status"/>
+                            <newline/>
+                            <field name="customer"/>
+                            <newline/>
+                            <field name="start_time"/>
+                            <newline/>
+                            <field name="end_time"/>
+                            <newline/>
+                            <field name="server"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--kanban View of table-->
+        <record id="view_food_table_kanban" model="ir.ui.view">
+            <field name="name">food_table.kanban</field>
+            <field name="model">food.table</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="id"/>
+                    <field name="name" readonly='1'/>
+                    <field name="capacity"/>
+                    <field name="status"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <div class="o_kanban_image">
+                                    <img alt=""
+                                         t-att-src="kanban_image('food.table', 'image_small', record.id.raw_value)"/>
+                                </div>
+                                <div class="oe_kanban_details">
+                                    <ul>
+                                        <li>
+                                            Table:
+                                            <field name="name" ></field>
+                                        </li>
+                                        <li>
+                                            Price:
+                                            <field name="capacity"></field>
+                                        </li>
+                                        <li>
+                                            Status:
+                                            <field name="status"></field>
+                                        </li>
+                                                                            <li>
+                                                                                Server:
+                                                                                <field name="server"></field>
+                                                                            </li>
+                                        <li>
+                                            Customer:
+                                            <field name="customer"></field>
+                                        </li>
+                                        <li>
+                                            Next Available at:
+                                            <field name="end_time"></field>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+        <!-- Tree view of hotel restaurant tables -->
+        <record id="view_food_table_tree" model="ir.ui.view">
+            <field name="name">food_table.tree</field>
+            <field name="model">food.table</field>
+            <field name="arch" type="xml">
+                <tree string="Table Details">
+                    <!--    colors="red:status == 'empty';grey:status == 'occupied';black:status == 'reserved';green:status == 'dirty'"-->
+                    <!--    toolbar="1">-->
+                    <field name="name" readonly='1'/>
+                    <field name="capacity"/>
+                    <field name="status"/>
+                    <field name="server"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Search view of hotel restaurant tables -->
+        <record id="view_food_table_search" model="ir.ui.view">
+            <field name="name">food_table.search</field>
+            <field name="model">food.table</field>
+            <field name="arch" type="xml">
+                <search string="Table Detail">
+                    <field name="name"/>
+                    <field name="capacity"/>
+                    <field name="status"/>
+                    <newline/>
+                </search>
+            </field>
+        </record>
+
+        <!-- Action of hotel restaurant tables -->
+        <record id="open_view_food_table_form_tree"
+                model="ir.actions.act_window">
+            <field name="name">Tables</field>
+            <field name="res_model">food.table</field>
+            <field name="view_mode">kanban,tree,form</field>
+        </record>
+
+        <!-- Parent Menu -->
+        <menuitem name="Restaurant"
+                  id="restaurant_top_menu"
+                  sequence="0"/>
+
+
+        <!-- Main Menu -->
+        <menuitem name="Tables"
+                  id="tables_menu"
+                  action="open_view_food_table_form_tree"
+                  parent="restaurant_top_menu"/>
+    </data>
+
+</odoo>

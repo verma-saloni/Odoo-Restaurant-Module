@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<odoo>
+    <data>
+
+        <!-- Employee Data Master -->
+        <!--     Form view of new employee data -->
+        <record id="view_food_employees_form" model="ir.ui.view">
+            <field name="name">hr.employee.form</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                    <field name="user_id" position="before">
+                        <field name="occupation" select="0"/>
+                    </field>
+            </field>
+        </record>
+
+
+        <!--         Tree view of hotel employees -->
+        <record id="view_food_employees_tree" model="ir.ui.view">
+            <field name="name">hr.employees.tree</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_tree"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="occupation" select="0"/>
+                </field>
+
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

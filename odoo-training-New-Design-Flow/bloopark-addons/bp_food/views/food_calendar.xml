@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--list view of calendars-->
+    <record id="calendar_list_view" model="ir.ui.view">
+        <field name="name">food_calendar.list.view</field>
+        <field name="model">food.table</field>
+        <field name="priority" eval="1"/>
+        <field name="arch" type="xml">
+            <tree string="calendars list">
+                <field name="server"/>
+                <field name="name"/>
+                <field name="capacity"/>
+                <field name="customer"/>
+                <field name="start_time"/>
+                <field name="end_time"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--Calender view of calendars-->
+    <record id="calendar_calendar_view" model="ir.ui.view">
+        <field name="name">food_calendar.view</field>
+        <field name="model">food.table</field>
+        <field name="priority" eval="1"/>
+        <field name="arch" type="xml">
+            <calendar string="calendar Calender" mode="month" quick_add="False"
+                      date_start="start_time" date_stop="end_time">
+                <field name="server"/>
+                <field name="name"/>
+                <field name="capacity"/>
+                <field name="customer"/>
+                <field name="start_time"/>
+                <field name="end_time"/>
+            </calendar>
+        </field>
+    </record>
+
+    <!-- Form view of new customer data -->
+    <record id="view_calendar_tables_form" model="ir.ui.view">
+        <field name="name">food_calendar.form</field>
+        <field name="model">food.table</field>
+        <field name="arch" type="xml">
+            <form string="Table Details">
+                 <sheet>
+                    <group>
+                        <field name="name" colspan="1"/>
+                        <newline/>
+                        <field name="capacity"/>
+                        <newline/>
+                        <field name="status"/>
+                        <newline/>
+                        <field name="customer"/>
+                        <newline/>
+                        <field name="start_time"/>
+                        <newline/>
+                        <field name="end_time"/>
+                        <newline/>
+                        <field name="server"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--action of the calendar-->
+    <record id="action_calendar" model="ir.actions.act_window">
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">food.table</field>
+        <field name="view_mode">calendar,tree,form</field>
+    </record>
+
+   
+    <!--parent menu-->
+    <menuitem name="Restaurant"
+              id="restaurant_top_menu"
+              sequence="7"/>
+
+    <!--submenu-->
+    <menuitem id="table_calendar"
+              name="Calendar"
+              parent="restaurant_top_menu"
+              action="action_calendar"/>
+</odoo>

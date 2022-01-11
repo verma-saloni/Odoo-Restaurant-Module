@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="teacher_report_cards">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <h2>Student Report</h2>
+                <span class="float-left text-left">
+                    <table>
+                        <tr>
+                            <td>
+                                Customer Name:
+                            </td>
+                            <td>
+                                <t t-esc="doc.name"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Bill Due:
+                            </td>
+                            <td>
+                                <t t-esc="doc.order.mapped('name')"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                dishes:
+                            </td>
+                            <td>
+                                <t t-esc="doc.order.mapped('dishes')"/>
+                            </td>
+                        </tr>
+                    </table>
+                </span>
+            </t>
+        </t>
+    </template>
+
+    <template id="teacher_report">
+        <t t-call="web.external_layout">
+            <t t-call="School.teacher_report_cards"/>
+        </t>
+    </template>
+</odoo>

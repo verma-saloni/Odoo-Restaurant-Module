@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<odoo>
+
+
+    <!-- Order Page -->
+    <!-- Form view of new order data -->
+    <record id="view_food_order_form" model="ir.ui.view">
+        <field name="name">food_order.form</field>
+        <field name="model">food.order</field>
+        <field name="arch" type="xml">
+            <form string="Customer Order Details">
+                <sheet>
+                    <group>
+                        <field name="table" colspan="1"/>
+                        <newline/>
+                        <field name="name"/>
+                        <newline/>
+                        <field name="order_date"/>
+                        <newline/>
+                        <field name="order_customer_id"/>
+                        <newline/>
+                        <field name="order_dish_id"/>
+                        <newline/>
+                        <field name="quantity"/>
+                        <newline/>
+                        <field name="order_server"/>
+                        <newline/>
+                        <field name="order_amount"/>
+                        <newline/>
+                        <field name="order_comments"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree view of hotel restaurant tables -->
+    <record id="view_food_order_tree" model="ir.ui.view">
+        <field name="name">food_order.tree</field>
+        <field name="model">food.order</field>
+        <field name="arch" type="xml">
+            <tree string="Order Summary">
+                <field name="table"/>
+                <field name="name"/>
+                <field name="order_date"/>
+                <field name="order_customer_id"/>
+                <field name="order_dish_id"/>
+                <field name="order_server"/>
+                <field name="order_amount"/>
+                <field name="order_comments"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Search view of hotel restaurant tables -->
+    <record id="view_food_order_search" model="ir.ui.view">
+        <field name="name">food_order.search</field>
+        <field name="model">food.order</field>
+        <field name="arch" type="xml">
+            <search string="Customer Detail">
+                <field name="table"/>
+                <field name="name"/>
+                <field name="order_date"/>
+                <field name="order_customer_id"/>
+                <field name="order_dish_id"/>
+                <field name="order_server"/>
+                <field name="order_amount"/>
+                <field name="order_comments"/>
+                <newline/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action of hotel restaurant tables -->
+    <record id="open_view_food_order_customers_form_tree"
+            model="ir.actions.act_window">
+        <field name="name">Order</field>
+        <field name="res_model">food.order</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Parent Menu -->
+    <menuitem name="Restaurant"
+              id="restaurant_top_menu"
+              sequence="0"/>
+
+    <menuitem name="Orders"
+              id="menu_open_view_food_order_customers_form_tree"
+              action="open_view_food_order_customers_form_tree"
+              parent="restaurant_top_menu"/>
+
+
+</odoo>

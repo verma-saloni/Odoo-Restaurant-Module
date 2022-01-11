@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <record id="seq_food_table" model="ir.sequence">
+            <field name="name">Table No.</field>
+            <field name="code">food.table</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_food_order" model="ir.sequence">
+            <field name="name">Order No.</field>
+            <field name="code">food.order</field>
+            <field name="prefix">Order</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>

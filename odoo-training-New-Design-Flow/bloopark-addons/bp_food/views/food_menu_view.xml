@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<odoo>
+
+
+    <!-- Menu of all Dishes Data Master -->
+    <!-- Form view of new employee data -->
+    <record id="view_food_menu_form" model="ir.ui.view">
+        <field name="name">food_menu.form</field>
+        <field name="model">food.menu</field>
+        <field name="arch" type="xml">
+            <form string="Menu at the Restaurant Form">
+                <sheet>
+                    <group>
+                        <field name="name" colspan="1"/>
+                        <newline/>
+                        <field name="dish_price"/>
+                        <newline/>
+                        <field name="dish_comments"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree view of hotel restaurant tables -->
+    <record id="view_food_menu_tree" model="ir.ui.view">
+        <field name="name">food_menu.tree</field>
+        <field name="model">food.menu</field>
+        <field name="arch" type="xml">
+            <tree string="Menu at the Restaurant Form">
+                <field name="name"/>
+                <field name="dish_price"/>
+                <field name="dish_comments"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Search view of hotel restaurant tables -->
+    <record id="view_food_menu_search" model="ir.ui.view">
+        <field name="name">food_menu.search</field>
+        <field name="model">food.menu</field>
+        <field name="arch" type="xml">
+            <search string="Menu at the Restaurant Form">
+                <field name="name"/>
+                <field name="dish_price"/>
+                <field name="dish_comments"/>
+                <newline/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action of hotel restaurant tables -->
+    <record id="open_view_food_menu_form_tree"
+            model="ir.actions.act_window">
+        <field name="name">Menu</field>
+        <field name="res_model">food.menu</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Parent Menu -->
+    <menuitem name="Restaurant"
+              id="restaurant_top_menu"
+              sequence="0"/>
+
+    <menuitem name="Restaurant Menu"
+              id="food_menu_form_tree"
+              action="open_view_food_menu_form_tree"
+              parent="restaurant_top_menu"/>
+
+
+</odoo>

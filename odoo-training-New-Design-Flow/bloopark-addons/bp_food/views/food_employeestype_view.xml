@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<odoo>
+
+
+    <!-- Customer Data Master -->
+    <!-- Form view of new employee data -->
+    <record id="view_food_employeestype_form" model="ir.ui.view">
+        <field name="name">food_employeestype.form</field>
+        <field name="model">food.employeestype</field>
+        <field name="arch" type="xml">
+            <form string="New Employee Suggestions Form">
+                <sheet>
+                    <group>
+                        <field name="name" colspan="1"/>
+                        <newline/>
+                        <field name="comments"/>
+                        <field name="occupation_type"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree view of hotel restaurant tables -->
+    <record id="view_food_employeestype_tree" model="ir.ui.view">
+        <field name="name">food_employeestype.tree</field>
+        <field name="model">food.employeestype</field>
+        <field name="arch" type="xml">
+            <tree string="New Employee Suggestions Form">
+                <field name="name"/>
+                <field name="comments"/>
+                <field name="occupation_type"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Search view of hotel restaurant tables -->
+    <record id="view_food_employeestype_search" model="ir.ui.view">
+        <field name="name">food_employeestype.search</field>
+        <field name="model">food.employeestype</field>
+        <field name="arch" type="xml">
+            <search string="New Employee Suggestions Form">
+                <field name="name"/>
+                <newline/>
+                <field name="comments"/>
+                <newline/>
+                <newline/>
+                <field name="occupation_type"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action of hotel restaurant tables -->
+    <record id="open_view_food_employeestype_form_tree"
+            model="ir.actions.act_window">
+        <field name="name">EmployeeType</field>
+        <field name="res_model">food.employeestype</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+      <!-- Parent Menu -->
+    <menuitem name="Restaurant"
+              id="restaurant_top_menu"
+              sequence="0"/>
+
+
+
+    <menuitem name="New Job Requirements"
+              id="menu_open_view_food_employeestype_form_tree"
+              action="open_view_food_employeestype_form_tree"
+              parent="restaurant_top_menu"/>
+
+
+</odoo>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Tree view of hotel restaurant tables -->
+        <record id="view_suggestions_tree" model="ir.ui.view">
+            <field name="name">check_booking_table.tree</field>
+            <field name="model">check.booking.table</field>
+            <field name="arch" type="xml">
+                <tree string="Booking">
+                    <field name="customer"/>
+                    <field name="request_start_date"/>
+                    <field name="request_end_date"/>
+                    <field name="existing_table"/>
+                    <field name="available_start"/>
+                    <field name="available_end"/>
+                </tree>
+            </field>
+        </record>
+
+
+
+    <!--book table for customer form view-->
+    <record id="check_booking_table_form" model="ir.ui.view">
+        <field name="name">check.booking.table.form.view</field>
+        <field name="model">check.booking.table</field>
+        <field name="arch" type="xml">
+            <form string="Booking">
+                <group>
+                    <field name="customer"/>
+                    <field name="request_start_date"/>
+                    <field name="request_end_date"/>
+                    <field name="available_start"/>
+                    <field name="available_end"/>
+                    <field name="existing_table"/>
+                 </group>
+                <footer>
+                    <button name="check_table" string="Check" type="object"
+                            class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary"
+                            special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action of hotel restaurant tables -->
+    <record id="check_booking_table"
+            model="ir.actions.act_window">
+        <field name="name">Booking</field>
+        <field name="res_model">check.booking.table</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

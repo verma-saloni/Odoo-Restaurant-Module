@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<odoo>
+
+
+
+    <!-- Dish Data Master -->
+    <!-- Form view of new employee data -->
+    <record id="view_food_dishtype_form" model="ir.ui.view">
+        <field name="name">food_dishtype.form</field>
+        <field name="model">food.dishtype</field>
+        <field name="arch" type="xml">
+            <form string="New Dish Suggestions Form">
+
+                <sheet>
+                    <h3 class="font-weight-bold">
+                        New Dish Suggestions
+                    </h3>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <notebook colspan="4">
+                        <page string="New Dishes" name="general_info">
+                            <group>
+                                <group>
+                                    <field name="dish_type"
+                                           string="Dish Type"/>
+                                    <field name="dish_ingredients"
+                                           string="Dish Ingredients"/>
+                                    <field name="dish_type"
+                                               placeholder="Dish Type.."/>
+                                    <field name="dish_price"
+                                               placeholder="Dish Price.."/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <page string="Dish Details" name="new_dish">
+                            <group>
+                                    <field name="dish_cuisine"/>
+                                    <field name="dish_comments"/>
+                                </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree view of hotel restaurant tables -->
+    <record id="view_food_dishtype_tree" model="ir.ui.view">
+        <field name="name">food_dishtype.tree</field>
+        <field name="model">food.dishtype</field>
+        <field name="arch" type="xml">
+            <tree string="New Dish Suggestions Form">
+                <field name="name"/>
+                <field name="dish_ingredients"/>
+                <field name="dish_type"/>
+                <field name="dish_price"/>
+                <field name="dish_cuisine"/>
+                <field name="dish_comments"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Search view of hotel restaurant tables -->
+    <record id="view_food_menu_search" model="ir.ui.view">
+        <field name="name">food_dishtype.search</field>
+        <field name="model">food.dishtype</field>
+        <field name="arch" type="xml">
+            <search string="New Dish Suggestions Form">
+                <field name="name"/>
+                <field name="dish_ingredients"/>
+                <field name="dish_type"/>
+                <field name="dish_price"/>
+                <field name="dish_cuisine"/>
+                <field name="dish_comments"/>
+                <newline/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action of hotel restaurant tables -->
+    <record id="open_view_food_dishtype_form_tree"
+            model="ir.actions.act_window">
+        <field name="name">Menu</field>
+        <field name="res_model">food.dishtype</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+    <!-- Parent Menu -->
+    <menuitem name="Restaurant"
+              id="restaurant_top_menu"
+              sequence="0"/>
+
+
+    <menuitem name="New Dish Suggestions"
+              id="food_dishtype_form_tree"
+              action="open_view_food_dishtype_form_tree"
+              parent="restaurant_top_menu"/>
+
+
+</odoo>
